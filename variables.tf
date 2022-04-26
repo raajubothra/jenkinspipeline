@@ -1,0 +1,14 @@
+variable "region" {}
+variable "access_key" {}
+variable "secret_key" {}
+variable "vpc_cidr_block" {}
+variable "vpc_name" {}
+variable "public_subnet_name" {}
+variable "private_subnet_name" {}
+variable "public_subnet_cidr_block" {}
+variable "private_subnet_cidr_block" {}
+variable "igw_name" {}
+variable "public_route_table" {}
+variable "private_route_table" {}
+variable "sg_name" {}
+variable "imagename" {}

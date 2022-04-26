@@ -1,0 +1,10 @@
+{
+    "aws_access_key": "AKIASZGXI5HBHJYIOGFE",
+    "aws_secret_key": "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",
+    "region": "us-east-1",
+    "source_ami": "ami-04505e74c0741db8d",
+    "instance_type": "t2.micro",
+    "vpc_id": "vpc-07ca4d32ba7b0c3aa",
+    "subnet_id": "subnet-089256c50f0e0c44f",
+    "ssh_username":"ubuntu"
+}
