@@ -4,6 +4,7 @@ pipeline {
         stage('Build') { 
             steps {
                echo 'welcome to test'
+               sh 'ls -al'
             }
         }
 
