@@ -6,7 +6,6 @@ pipeline {
         dockerImage = '' 
 
     }
-    
     stages { 
         stage('Build Java Code') {
             steps {
@@ -26,8 +25,9 @@ pipeline {
                     docker.withRegistry( '', registryCredential ) { 
 
                     dockerImage.push() 
+                }
             }
-        }
        
+        }
     }
 }
