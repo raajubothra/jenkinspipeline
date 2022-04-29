@@ -4,7 +4,7 @@ pipeline {
         registry = "raju/devops"
         registryCredential = 'dockerhub_id'
         dockerImage = ''
-
+    }
     stages {
         stage('Build Java Code') {
             steps {
