@@ -11,4 +11,3 @@ variable "igw_name" {}
 variable "public_route_table" {}
 variable "private_route_table" {}
 variable "sg_name" {}
-variable "imagename" {}
