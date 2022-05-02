@@ -9,7 +9,7 @@
             stage('Build Java Code') {
                 steps {
                     echo "${BUILD_NUMBER}"
-                    sh 'rm -f ROOT.war && bash build.sh && mv ROOT.war ROOT${BUILD_NUMBER}.war'
+                    sh 'rm -f ROOT.war && bash build.sh && mv ROOT.war ROOT${BUILD_NUMBER}'
                 }
             }
             stage('send to s3') {
@@ -33,6 +33,22 @@
                     }
                 }   
             }
-        } 
+        }
+         stage('Perform Packer Build') {
+          
+            steps {
+                    sh 'pwd'
+                    sh 'ls -al'
+                    sh 'packer build -var-file packer-vars.json packer.json | tee output.txt'
+                    sh "tail -2 output.txt | head -2 | awk 'match(\$0, /ami-.*/) { print substr(\$0, RSTART, RLENGTH) }' > ami.txt"
+                    sh "echo \$(cat ami.txt) > ami.txt"
+                    script {
+                        def AMIID = readFile('ami.txt').trim()
+                        sh 'echo "" >> variables.tf'
+                        sh "echo variable \\\"imagename\\\" { default = \\\"$AMIID\\\" } >> variables.tf"
+                    }
+            }
+        }
+ 
     }
 }
